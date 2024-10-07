@@ -14,6 +14,10 @@
 		6C5AAF6D2CB411F8002AFBC5 /* CatCareTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5AAF6C2CB411F8002AFBC5 /* CatCareTests.swift */; };
 		6C5AAF772CB411F8002AFBC5 /* CatCareUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5AAF762CB411F8002AFBC5 /* CatCareUITests.swift */; };
 		6C5AAF792CB411F8002AFBC5 /* CatCareUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5AAF782CB411F8002AFBC5 /* CatCareUITestsLaunchTests.swift */; };
+		6C5AAF862CB41231002AFBC5 /* ChooseCat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5AAF852CB41231002AFBC5 /* ChooseCat.swift */; };
+		6C5AAF882CB41259002AFBC5 /* CareOverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5AAF872CB41259002AFBC5 /* CareOverView.swift */; };
+		6C5AAF8A2CB4126A002AFBC5 /* PerCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5AAF892CB4126A002AFBC5 /* PerCheck.swift */; };
+		6C5AAF8C2CB41285002AFBC5 /* SetSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5AAF8B2CB41285002AFBC5 /* SetSchedule.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +48,10 @@
 		6C5AAF722CB411F8002AFBC5 /* CatCareUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CatCareUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C5AAF762CB411F8002AFBC5 /* CatCareUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatCareUITests.swift; sourceTree = "<group>"; };
 		6C5AAF782CB411F8002AFBC5 /* CatCareUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatCareUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		6C5AAF852CB41231002AFBC5 /* ChooseCat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseCat.swift; sourceTree = "<group>"; };
+		6C5AAF872CB41259002AFBC5 /* CareOverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CareOverView.swift; sourceTree = "<group>"; };
+		6C5AAF892CB4126A002AFBC5 /* PerCheck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerCheck.swift; sourceTree = "<group>"; };
+		6C5AAF8B2CB41285002AFBC5 /* SetSchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetSchedule.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +104,10 @@
 			children = (
 				6C5AAF5B2CB411F7002AFBC5 /* CatCareApp.swift */,
 				6C5AAF5D2CB411F7002AFBC5 /* ContentView.swift */,
+				6C5AAF852CB41231002AFBC5 /* ChooseCat.swift */,
+				6C5AAF872CB41259002AFBC5 /* CareOverView.swift */,
+				6C5AAF892CB4126A002AFBC5 /* PerCheck.swift */,
+				6C5AAF8B2CB41285002AFBC5 /* SetSchedule.swift */,
 				6C5AAF5F2CB411F7002AFBC5 /* Assets.xcassets */,
 				6C5AAF612CB411F7002AFBC5 /* Preview Content */,
 			);
@@ -257,8 +269,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C5AAF8A2CB4126A002AFBC5 /* PerCheck.swift in Sources */,
+				6C5AAF862CB41231002AFBC5 /* ChooseCat.swift in Sources */,
 				6C5AAF5E2CB411F7002AFBC5 /* ContentView.swift in Sources */,
 				6C5AAF5C2CB411F7002AFBC5 /* CatCareApp.swift in Sources */,
+				6C5AAF882CB41259002AFBC5 /* CareOverView.swift in Sources */,
+				6C5AAF8C2CB41285002AFBC5 /* SetSchedule.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

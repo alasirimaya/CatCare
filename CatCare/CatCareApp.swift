@@ -11,7 +11,8 @@ import SwiftUI
 struct CatCareApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            //ContentView()
+            ChooseCat()
         }
     }
 }

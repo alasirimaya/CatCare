@@ -49,12 +49,11 @@ struct PerCheck: View {
                 taskList
             }
         }
-        
         // Navigation bar customization
         .navigationBarItems(
             leading: navBarLeading, // Back button and cat name on the left
             trailing: Button("Edit") { isEditing.toggle() } // Edit button on the right
-                .foregroundColor(.blue)
+                .foregroundColor(.gray)
         )
         .navigationBarTitleDisplayMode(.inline) // Align title with toolbar
         
@@ -65,8 +64,9 @@ struct PerCheck: View {
                 isEditing = false // Close the edit sheet
             })
         }
+        .onAppear(perform: loadTasks) // Load tasks when view appears
     }
-    
+
     // Header section displaying current month and title
     var header: some View {
         VStack(alignment: .leading) {
@@ -140,11 +140,11 @@ struct PerCheck: View {
         .shadow(radius: 1)
         .padding(.horizontal)
     }
-    
+
     // Navigation bar leading with back button and cat name
     var navBarLeading: some View {
         HStack {
-            NavigationLink(destination: CareOverView()) { }
+            NavigationLink(destination: CareOverView(selectedImageIndex: 0)) { }
             Image(systemName: "pawprint.fill")
                 .resizable()
                 .frame(width: 40, height: 40)
@@ -153,7 +153,7 @@ struct PerCheck: View {
                 .font(.title)
         }
     }
-    
+
     // Helper functions to retrieve day names and dates
     func getDayName(for date: Date) -> String {
         DateFormatter().shortWeekdaySymbols[Calendar.current.component(.weekday, from: date) - 1]
@@ -163,6 +163,14 @@ struct PerCheck: View {
         let formatter = DateFormatter()
         formatter.dateFormat = "d"
         return formatter.string(from: date)
+    }
+
+    // Load tasks from persistent storage
+    private func loadTasks() {
+        if let data = UserDefaults.standard.data(forKey: "tasks"),
+           let savedTasks = try? JSONDecoder().decode([Task].self, from: data) {
+            Utasks = savedTasks
+        }
     }
 }
 
@@ -223,7 +231,7 @@ struct TaskView: View {
         }
         .padding(.vertical, 5)
     }
-    
+
     // Handle task completion and removal after animation
     private func markTaskCompleted() {
         task.isCompleted.toggle()
@@ -253,6 +261,7 @@ struct TaskView: View {
         }
     }
 }
+
 
 // Task model to represent each task
 struct Task: Identifiable, Codable {

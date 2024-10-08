@@ -22,9 +22,15 @@ struct SetSchedule: View {
            case threeTimesDaily = "3 Times Daily"
        }
     
+    enum WaterFrequency: String, CaseIterable {
+           case daily = "Daily"
+           case twiceDaily = "Twice Daily"
+           case threeTimesDaily = "3 Times Daily"
+       }
+    
     // State to track selected frequency for each item
     @State private var foodFrequency: FoodFrequency = .daily
-    @State private var waterFrequency: Frequency = .daily
+    @State private var waterFrequency: WaterFrequency = .daily
     @State private var literboxFrequency: Frequency = .daily
     
 
@@ -43,6 +49,7 @@ struct SetSchedule: View {
 
     var body: some View {
         NavigationStack {
+            
             VStack(spacing: 20) {
                 
                 // Header Section
@@ -71,116 +78,117 @@ struct SetSchedule: View {
                 }
                 .frame(maxWidth: .infinity, alignment: .topTrailing)
                 
-                // Schedule list section
-                VStack(spacing: 24) {
-                    // Food Section
-                    HStack {
-                        Text("Food")
-                            .font(.headline)
-                            .foregroundColor(.black)
-                            .padding(.bottom,-25)
-                        
-                        Spacer()
-                        
-                        // Picker for food frequency
-                        Picker("", selection: $foodFrequency) {
+                
+                    // Schedule list section
+                    VStack(spacing: 24) {
+                        // Food Section
+                        HStack {
+                            Text("Food")
+                                .font(.headline)
+                                .foregroundColor(.black)
+                                .padding(.bottom,-25)
                             
-                            ForEach(FoodFrequency.allCases, id: \.self) { frequency in
-                                Text(frequency.rawValue)
+                            Spacer()
+                            
+                            // Picker for food frequency
+                            Picker("", selection: $foodFrequency) {
+                                
+                                ForEach(FoodFrequency.allCases, id: \.self) { frequency in
+                                    Text(frequency.rawValue)
                                     
+                                }
+                                
                             }
-                            
-                        }
-                        .padding(.bottom,-25)
-                        
-                        
-                        
-                        
-                        .pickerStyle(MenuPickerStyle())
-                        .frame(width: 100)
-                        
-                        // Time Picker for Food
-                        DatePicker("", selection: $foodTime, displayedComponents: .hourAndMinute)
-                            .labelsHidden()
-                            .frame(width: 100)
                             .padding(.bottom,-25)
-                    }
-                    .padding(15)
-                    
-                    Divider()
-                    
-                    // Water Section
-                    HStack {
-                        Text("Water")
-                            .font(.headline)
-                            .foregroundColor(.black)
-                        
-                        Spacer()
-                        
-                        // Picker for water frequency
-                        Picker("", selection: $waterFrequency) {
-                            ForEach(Frequency.allCases, id: \.self) { frequency in
-                                Text(frequency.rawValue)
-                            }
-                        }
-                        .pickerStyle(MenuPickerStyle())
-                        .frame(width: 100)
-                        
-                        // Time Picker for Watera
-                        DatePicker("", selection: $waterTime, displayedComponents: .hourAndMinute)
-                            .labelsHidden()
-                            .frame(width: 100)
-                    }
-                    .padding(15)
-                    
-                    Divider()
-                    
-                    // Litterbox Section
-                    HStack {
-                        Text("Litterbox")
-                            .font(.headline)
-                            .foregroundColor(.black)
-                        
-                        Spacer()
-                        
-                        // Picker for litterbox frequency
-                        Picker("", selection: $literboxFrequency) {
-                            ForEach(Frequency.allCases, id: \.self) { frequency in
-                                Text(frequency.rawValue)
-                            }
-                        }
-                        .pickerStyle(MenuPickerStyle())
-                        .frame(width: 100)
-                        
-                        // Time Picker for Litterbox
-                        DatePicker("", selection: $litterboxTime, displayedComponents: .hourAndMinute)
-                            .labelsHidden()
-                            .frame(width: 100)
-                    }
-                    .padding(15)
-                    
-                    Divider()
-                    
-                    // Vaccination Section with small date picker
-                    HStack {
-                        Text("Appointment")
-                            .font(.headline)
-                            .foregroundColor(.black)
-                            .padding(.top,-25)
-                        
-                        Spacer()
-                        
-                        // Small DatePicker with no labels
-                        DatePicker("", selection: $vaccinationDate, displayedComponents: .date)
-                            .padding(.top,-19)
-                            .datePickerStyle(CompactDatePickerStyle())
-                            .labelsHidden()
+                            
+                            
+                            
+                            
+                            .pickerStyle(MenuPickerStyle())
                             .frame(width: 100)
                             
+                            // Time Picker for Food
+                            DatePicker("", selection: $foodTime, displayedComponents: .hourAndMinute)
+                                .labelsHidden()
+                                .frame(width: 100)
+                                .padding(.bottom,-25)
+                        }
+                        .padding(15)
+                        
+                        Divider()
+                        
+                        // Water Section
+                        HStack {
+                            Text("Water")
+                                .font(.headline)
+                                .foregroundColor(.black)
+                            
+                            Spacer()
+                            
+                            // Picker for water frequency
+                            Picker("", selection: $waterFrequency) {
+                                ForEach(WaterFrequency.allCases, id: \.self) { frequency in
+                                    Text(frequency.rawValue)
+                                }
+                            }
+                            .pickerStyle(MenuPickerStyle())
+                            .frame(width: 100)
+                            
+                            // Time Picker for Watera
+                            DatePicker("", selection: $waterTime, displayedComponents: .hourAndMinute)
+                                .labelsHidden()
+                                .frame(width: 100)
+                        }
+                        .padding(15)
+                        
+                        Divider()
+                        
+                        // Litterbox Section
+                        HStack {
+                            Text("Litterbox")
+                                .font(.headline)
+                                .foregroundColor(.black)
+                            
+                            Spacer()
+                            
+                            // Picker for litterbox frequency
+                            Picker("", selection: $literboxFrequency) {
+                                ForEach(Frequency.allCases, id: \.self) { frequency in
+                                    Text(frequency.rawValue)
+                                }
+                            }
+                            .pickerStyle(MenuPickerStyle())
+                            .frame(width: 100)
+                            
+                            // Time Picker for Litterbox
+                            DatePicker("", selection: $litterboxTime, displayedComponents: .hourAndMinute)
+                                .labelsHidden()
+                                .frame(width: 100)
+                        }
+                        .padding(15)
+                        
+                        Divider()
+                        
+                        // Vaccination Section with small date picker
+                        HStack {
+                            Text("Appointment")
+                                .font(.headline)
+                                .foregroundColor(.black)
+                                .padding(.top,-25)
+                            
+                            Spacer()
+                            
+                            // Small DatePicker with no labels
+                            DatePicker("", selection: $vaccinationDate, displayedComponents: .date)
+                                .padding(.top,-19)
+                                .datePickerStyle(CompactDatePickerStyle())
+                                .labelsHidden()
+                                .frame(width: 100)
+                            
+                        }
+                        
+                        .padding(15)
                     }
-                    
-                    .padding(15)
-                }
                 
                 .background(
                     RoundedRectangle(cornerRadius: 30)
@@ -214,7 +222,7 @@ struct SetSchedule: View {
             .edgesIgnoringSafeArea(.all)
             // Define the navigation destination
             .navigationDestination(isPresented: $navigateToOverview) {
-                CareOverView() // Navigate to CareOverView when true
+                CareOverView(selectedImageIndex: 0) // Navigate to CareOverView when true
             }
         }
     }

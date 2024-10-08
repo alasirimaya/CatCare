@@ -53,7 +53,7 @@ struct PerCheck: View {
         .navigationBarItems(
             leading: navBarLeading, // Back button and cat name on the left
             trailing: Button("Edit") { isEditing.toggle() } // Edit button on the right
-                .foregroundColor(.gray)
+                .foregroundColor(.blue)
         )
         .navigationBarTitleDisplayMode(.inline) // Align title with toolbar
         

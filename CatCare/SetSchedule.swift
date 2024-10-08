@@ -80,11 +80,8 @@ struct SetSchedule: View {
                                             .font(.subheadline)
                                             .foregroundColor(.black)
                                         Spacer()
-                                        DatePicker("", selection: $foodTimes[index].time, displayedComponents: .hourAndMinute)
-                                            .labelsHidden()
-                                            .frame(width: 100)
                                         
-                                        // Food Frequency Picker
+                                        // Reverse the order: First the frequency, then the time picker
                                         Picker("Frequency", selection: $foodTimes[index].frequency) {
                                             ForEach(FoodFrequency.allCases, id: \.self) { frequency in
                                                 Text(frequency.rawValue)
@@ -93,6 +90,10 @@ struct SetSchedule: View {
                                         .pickerStyle(MenuPickerStyle())
                                         .frame(width: 100)
                                         
+                                        DatePicker("", selection: $foodTimes[index].time, displayedComponents: .hourAndMinute)
+                                            .labelsHidden()
+                                            .frame(width: 100)
+                                        
                                         // Delete Button
                                         Button(action: {
                                             foodTimes.remove(at: index)
@@ -100,7 +101,7 @@ struct SetSchedule: View {
                                             Image(systemName: "trash")
                                                 .foregroundColor(.red)
                                         }
-                                        .buttonStyle(BorderlessButtonStyle()) // To prevent row from being tapped when deleting
+                                        .buttonStyle(BorderlessButtonStyle()) // Prevent row from being tapped when deleting
                                     }
                                 }
                                 

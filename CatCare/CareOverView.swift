@@ -14,6 +14,7 @@ struct CareOverView: View {
     var body: some View {
         NavigationStack {
             ZStack {
+                //Color("backgroundGray").ignoresSafeArea()
                 Image("orange normal")
                     .resizable()
                     .scaledToFit()
@@ -22,8 +23,8 @@ struct CareOverView: View {
 
                 HStack {
                                    Text("Care")
-                                       .foregroundColor(.customOrange) // Set the "Care" text to orange
-                                       .font(.custom("SF Pro Regular", size: 28))
+                        .foregroundColor(.orange)// Set the "Care" text to orange
+                        .font(.custom("SF Pro Regular", size: 28))
 
                                    Text("overview")
                                        .font(.custom("SF Pro Regular", size: 28))

@@ -35,9 +35,10 @@ struct SetSchedule: View {
     @State private var tasks: [Task] = []
 
     var body: some View {
-        
+       
         NavigationStack {
             ZStack {
+                Color("backgroundGray").ignoresSafeArea()
                 // Background image
                 Image("orange normal")
                     .resizable()

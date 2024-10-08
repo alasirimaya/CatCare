@@ -9,6 +9,7 @@ struct ChooseCat: View {
     var body: some View {
         NavigationStack {
             ZStack {
+              //  Color("backgroundGray").ignoresSafeArea()
                 Image("orange normal")
                     .resizable()
                     .edgesIgnoringSafeArea(.all)
